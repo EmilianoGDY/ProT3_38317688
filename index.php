@@ -16,17 +16,21 @@
     <h1>Bienvenido a Tus Clases de Guitarra</h1>
     <h3>Por Favor Ingrese sus datos de usuario para Iniciar Sesion</h3>
     <div class="Principal d-flex justify-content-center">
-        <form action="" class="d-flex flex-column flex-wrap">
+        <form action="" class="d-flex flex-column flex-wrap" method="post">
             <h1>Tus Clases de Guitarra</h1>
+            <?php
+            include("conexion_bd.php");
+            include("controlador_user");
+            ?>
 
             <label for="">Usuario</label>
-            <input type="text" placeholder="Escriba su Usuario" id="usuario">
+            <input type="text" placeholder="Escriba su Usuario" id="usuario" name="usuario">
 
             <label for="">Contraseña</label>
-            <input type="password" placeholder="Escriba su Contraseña" id="pass">
+            <input type="password" placeholder="Escriba su Contraseña" id="pass" name="password">
 
-
-            <button type="button" class="btn btn-success m-3" onclick="loguear()">Ingresar</button>
+            <input name="btningresar" class="btn" type="submit" value="INICIAR SESION">
+            
         </form>
 
 
