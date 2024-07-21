@@ -1,0 +1,62 @@
+body{
+    background-color: dimgrey;
+}
+
+.logo{
+    margin: 0 20px 0 20px;
+}
+
+
+
+.ContPpal h1{
+    margin: 70px 0 100px 0;
+    font-family: "Playwrite NG Modern", cursive;
+    text-align: center;
+    color: black;
+
+}
+
+.ContPpal p{
+    margin: 100px 0 100px 0;
+    padding: 0 100px 0 100px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 32px;
+    text-align: center;
+    color: black;
+
+}
+
+.ContPpal h3{
+    color: black;
+    margin: 100px 0 100px 0;
+    text-align: center;
+}
+
+.ContPpal ul{
+    display: grid;
+    max-width:77% ;
+    margin: auto;
+    grid-template-columns: auto;
+    text-align: left;
+    color: black;
+    font-size: 30px;
+    padding-left: 30px;
+}
+
+.ContPpal li{
+    color: black;
+    
+}
+
+#text{
+    color: azure;
+    text-align: center;
+    padding: 0 30px 0 30px;
+}
+
+.carousel-caption h3{
+    background-color: aliceblue;
+    color:crimson;
+    margin: 0 200px 0 200px;
+
+}

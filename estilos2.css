@@ -1,0 +1,50 @@
+body{
+    background-color: dimgrey;
+}
+
+.logo{
+    margin: 0 20px 0 20px;
+}
+
+.Principal{
+    display: grid;
+    place-items: center;
+}
+
+.Principal h1{
+    color: black;
+    margin: 70px 0 50px 0;
+    font-family: "Playwrite NG Modern", cursive;
+}
+
+
+p{
+    color: black;
+    font-size: 30px;
+    margin-left: 50px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.cuerpo{
+    background-color: dimgrey;
+}
+
+.accordion{
+    margin-top: 100px;
+    padding: 0 50px 0 50px;
+}
+
+.encabezado{
+    background-color: dodgerblue;
+}
+
+.Abajo{
+    margin-top: 100px;
+    padding: 0 50px 0 50px;
+}
+
+.Abajo h1{
+    text-align: center;
+    color: black;
+    font-family: "Playwrite NG Modern", cursive;
+}
