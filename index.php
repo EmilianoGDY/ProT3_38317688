@@ -20,16 +20,16 @@
             <h1>Tus Clases de Guitarra</h1>
             <?php
             include("conexion_bd.php");
-            include("controlador_user");
+            include("controlador_user.php");
             ?>
 
             <label for="">Usuario</label>
-            <input type="text" placeholder="Escriba su Usuario" id="usuario" name="usuario">
+            <input type="text" class="input" placeholder="Escriba su Usuario" id="usuario" name="usuario">
 
             <label for="">Contraseña</label>
-            <input type="password" placeholder="Escriba su Contraseña" id="pass" name="password">
+            <input type="password" class="input" placeholder="Escriba su Contraseña" id="pass" name="password">
 
-            <input name="btningresar" class="btn" type="submit" value="INICIAR SESION">
+            <input name="btningresar" class="btn btn-success" type="submit" value="INICIAR SESION">
             
         </form>
 
