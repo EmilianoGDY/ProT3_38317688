@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+// Verifica si el usuario está logueado
+if (!isset($_SESSION['usuario'])) {
+    header("Location: index.php");
+    exit();
+}
+
+$usuario = $_SESSION['usuario'];
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,12 +28,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Barra de Navegacion con Bootstrap  -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
             <img src="img/imagen2.png" class="logo" alt="..." width="95px" height="60px">
-          <a class="navbar-brand" href="#">Tus Clases de Guitarra</a>
+          <a class="navbar-brand" href="inico.php">Tus Clases de Guitarra</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -34,26 +49,18 @@
               <li class="nav-item">
                 <a class="nav-link" href="Acercade.html">Acerca de</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Usuario
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="index.html">Iniciar Sesion</a></li>
-                  <li><a class="dropdown-item" href="registrarse.html">Registrarse</a></li>   
-                </ul>
+              <li class="nav-item">
+              <a class="nav-link" href=""><?php echo htmlspecialchars($usuario); ?></a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Bucar Aqui</button>
-            </form>
+           
           </div>
         </div>
     </nav>
     <!-- Fin Barra de Navegacion -->
 
     <div class="ContPpal">
+    <h1>Bienvenido, <?php echo htmlspecialchars($usuario); ?>!</h1>
         <h1>Bienvenido a Tus Clases de Guitarra</h1>
         <!-- Carrusel con BootStrap -->
         <div id="carouselExampleCaptions" class="carousel slide">
@@ -118,7 +125,7 @@
 
        <p> No esperes más para convertirte en el guitarrista que siempre soñaste ser. ¡Regístrate hoy y empieza tu viaje musical con "Tus Clases de Guitarra"!</p>  
         
-
+       
     </div>
 </body>
 </html>
