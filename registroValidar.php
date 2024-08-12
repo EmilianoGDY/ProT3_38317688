@@ -1,34 +1,47 @@
-<?php session_start();
-include('db.php');
+<?php
+// Configuración de la base de datos
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "login_usuarios";
 
-//Code for Registration 
-if(isset($_POST['submit']))
-{
-    $usuario=$_POST['user'];
-    $password=$_POST['pass'];
-    $email=$_POST['email'];
-    $nombre=$_POST['nombre'];
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
+// Obtener los datos del formulario
+$name = $_POST['nombre'];
+$user = $_POST['user'];
+$email = $_POST['email'];
+$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+
+// Verificar si el correo ya está registrado
+$sql_check = "SELECT id FROM usuarios WHERE email='$email'";
+$result = $conn->query($sql_check);
+
+if ($result->num_rows > 0) {
+    // Si el correo ya existe, mostrar mensaje de error
+    echo "<script>alert('El correo electrónico ya está registrado. Por favor, intenta con un correo diferente.');</script>";
+    echo "<script>window.location.href='index.html';</script>"; // Redirigir de vuelta al formulario
+} else {
+    // Si el correo no existe, insertar el nuevo usuario
+    $sql = "INSERT INTO usuarios (nombre,usuario,email, password) VALUES ('$name','$user', '$email', '$pass')";
     
-$sql=mysqli_query($con,"select usuario from usuarios where email='$email'");
-$row=mysqli_num_rows($sql);
-
-// $consulta="SELECT usuario FROM usuarios where email='$email'";
-// $resultado=mysqli_query($conexion,$consulta);
-
-// $row=mysqli_num_rows($resultado);
-
-if($row>0)
-{
-    echo "<script>alert('Este email ya existe registrado. Por favor intente con una direccion de correo diferente');</script>";
-} else{
-    $msg=mysqli_query($con,"insert into usuarios(usuario,password,email,nombre) values('$usuario','$password','$email','$nombre')");
-
-if($msg)
-{
-    echo "<script>alert('Se ha Registrado con Exito');</script>";
-    header("location:index.php");
-    // echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+    if ($conn->query($sql) === TRUE) {
+        // Redirigir a la página de inicio de sesión con un parámetro de éxito
+        echo "<script>alert('El Registro se ha completado con éxito');</script>";
+        header("Location: index.php");
+        
+        exit();
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
-}
-}
+
+// Cerrar la conexión
+$conn->close();
 ?>

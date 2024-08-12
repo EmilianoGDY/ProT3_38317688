@@ -22,8 +22,9 @@ if($filas){
     ?>
     <?php
     include("index.php");
+    echo "<script>alert('Los Datos proporcionados no son Correctos. Intente Nuevamente');</script>";
     ?>
-    <h1 class="bad">ERROR EN LA AUTENTICACION</h1>
+    
     <?php
 }
 
